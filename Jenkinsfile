@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Test") {
             when {
-                changelog ".*Downgrade.*"
+                changelog ".*Update.*"
             }
             steps {
                 echo "Hello World!"
