@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Stage1") {
             when {
-                changelog ".*added.*"
+                 changelog '.*^\\[added\\] .+$' 
             }
             steps {
                 echo "Hello from Stage one"
