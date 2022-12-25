@@ -14,7 +14,7 @@ pipeline {
                 changelog ".*downgrade.*"
             }
             steps {
-                 echo "Hello From Stage two"
+                 echo "Hello From Stage 2"
             }          
         }
         stage("Stage3"){
