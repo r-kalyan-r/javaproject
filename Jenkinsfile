@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Stage1") {
             when {
-                 changelog '.*^\\[added\\] .+$' 
+                 changelog ".*added.*" 
             }
             steps {
                 echo "Hello from Stage one"
@@ -16,7 +16,7 @@ pipeline {
         }
         stage("Stage2"){
              when {
-                changelog "downgrade"
+                changelog ".*downgrade.*"
             }
             steps {
                  echo "Hello From Stage 2"
