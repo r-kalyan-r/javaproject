@@ -1,12 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage("Test") {
-            when {
-                changelog ".*Update.*"
-            }
+        stage("Stage1") {
             steps {
-                echo "Hello World!"
+                echo "Hello from Stage1"
+            }
+        }
+        stage("Stage2"){
+            steps {
+                 echo "Hello From Stage2"
+            }
+            
+        }
+        stage("Stage3"){
+            steps {
+               echo "Hello From Stage3"
             }
         }
     }
