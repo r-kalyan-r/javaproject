@@ -6,7 +6,7 @@ pipeline {
                 changelog ".*added.*"
             }
             steps {
-                echo "Hello from Stage one"
+                echo "Hello from Stage 1"
             }
         }
         stage("Stage2"){
