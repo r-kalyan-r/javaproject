@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Stage1") {
             when {
-             changelog ".*Update.*"   
+             changelog ".*added.*"   
             }
 
             steps {
