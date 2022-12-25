@@ -2,10 +2,6 @@ pipeline {
     agent any
     stages {
         stage("Stage1") {
-            when {
-             changelog ".*added.*"   
-            }
-
             steps {
                 echo "Hello from Stage one"
             }
