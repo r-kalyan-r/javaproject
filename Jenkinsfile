@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage("Checkout"){
+        steps {
+            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/r-kalyan-r/javaproject.git',credentialsId: 'git-token']], branches: [[name: 'main']]], poll: false
+          }
+        }
         stage("Stage1") {
             when {
                  changelog '.*^\\[added\\] .+$' 
