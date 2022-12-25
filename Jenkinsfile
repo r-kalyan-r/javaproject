@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Stage1") {
             steps {
-                echo "Hello from Stage one"
+                echo "Hello from Stage 1"
             }
         }
         stage("Stage2"){
@@ -18,7 +18,7 @@ pipeline {
         }
         stage("Stage3"){
             steps {
-               echo "Hello From Stage three"
+               echo "Hello From Stage 3"
             }
         }
     }
