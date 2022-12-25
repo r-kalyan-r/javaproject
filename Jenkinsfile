@@ -9,8 +9,7 @@ pipeline {
         stage("Stage2"){
             steps {
                  echo "Hello From Stage2"
-            }
-            
+            }          
         }
         stage("Stage3"){
             steps {
