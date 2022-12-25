@@ -11,7 +11,7 @@ pipeline {
                 changelog ".*QA.*"
             }
             steps {
-                echo "Hello from Stage 1"
+                echo "Hello from Stage 1 QA"
             }
         }
         stage("Stage2"){
