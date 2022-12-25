@@ -22,7 +22,7 @@ pipeline {
                 changelog ".*QA.*"
             }
             steps {
-               echo "Hello From Stage3"
+               echo "Hello From Stage 3"
             }
         }
     }
