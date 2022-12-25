@@ -16,7 +16,7 @@ pipeline {
         }
         stage("Stage2"){
              when {
-                changelog ".*downgrade.*"
+                changelog "downgrade"
             }
             steps {
                  echo "Hello From Stage 2"
