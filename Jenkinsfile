@@ -15,7 +15,6 @@ pipeline{
 	             script {
                        def pom = readMavenPom file: 'pom.xml'
                        env.version = pom.version
-                       echo "${pom.version}"
                        echo "${env.version}"
                 }
             }
