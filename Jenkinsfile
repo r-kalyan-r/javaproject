@@ -6,31 +6,44 @@ pipeline{
             checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/r-kalyan-r/javaproject.git',credentialsId: 'git-token']], branches: [[name: 'main']]], poll: false
           }
         }
-        stage("Shell script change") {
+        stage("main branch script ") {
             when {
-                changeset "*/*.sh"
-		    // scan all the folders and check if there is change in shell script  
+                branch "main"
+		    // Build only when main branch  
             }
             steps {
-                echo "executing QA script"
+	             script {
+                       def pom = readMavenPom file: 'pom.xml'
+                       env.version = pom.version
+                       echo "${pom.version}"
+                       echo "${env.version}"
+                }
             }
         }
-        stage("python file change"){
+        stage("develop branch script"){
             when {
-                changeset "*/*.py"
+                branch "develop"
               // scan all the folders and check if there is change in python script       
             }
             steps {
-                 echo "executing Prod script"
+	                      script {
+                       def pom = readMavenPom file: 'pom.xml'
+                       env.version = pom.version
+                       echo "${env.version}"
+                }
+
 		 }          
         }
-	stage("html file change"){
+	stage("feature branch script"){
             when {
-                changeset "*/*.html"
-  // scan all the folders and check if there is change in html file  
+                branch "feature-*"
+  // builds on when branch starts with feature-  
             }
             steps {
-                 echo "executing Dev script"
+	           script {
+                       def pom = readMavenPom file: 'pom.xml'
+                       env.version = pom.version
+                       echo "${env.version}"
                  }
         }
     }
