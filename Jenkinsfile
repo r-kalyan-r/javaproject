@@ -3,7 +3,7 @@ pipeline{
     stages {
         stage("Checkout"){
         steps {
-            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/r-kalyan-r/javaproject.git',credentialsId: 'git-token']], branches: [[name: 'main']]], poll: false
+            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/r-kalyan-r/javaproject.git',credentialsId: 'git-token']], poll: false
           }
         }
         stage("main branch script ") {
