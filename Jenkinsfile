@@ -15,7 +15,7 @@ pipeline{
                 echo "executing QA script"
             }
         }
-        stage("python change"){
+        stage("python file change"){
             when {
                 changeset "*/*.py"
               // scan all the folders and check if there is change in python script       
@@ -24,7 +24,7 @@ pipeline{
                  echo "executing Prod script"
 		 }          
         }
-	stage("html change"){
+	stage("html file change"){
             when {
                 changeset "*/*.html"
   // scan all the folders and check if there is change in html file  
