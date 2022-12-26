@@ -6,18 +6,19 @@ pipeline{
             checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/r-kalyan-r/javaproject.git',credentialsId: 'git-token']], branches: [[name: 'main']]], poll: false
           }
         }
-        stage("QA-Stage") {
+        stage("Shell script change") {
             when {
-                changeset "QA/*.html"
+                changeset "*/*.sh"
+		    // scan all the folders and check if there is change in shell script  
             }
             steps {
                 echo "executing QA script"
             }
         }
-        stage("Prod-Stage"){
+        stage("python change"){
             when {
-                changeset "Prod/*.html"
-                    
+                changeset "*/*.py"
+              // scan all the folders and check if there is change in python script       
             }
             steps {
                  echo "executing Prod script"
@@ -25,8 +26,8 @@ pipeline{
         }
 	stage("Dev-Stage"){
             when {
-                changeset "Dev/*.html"
-
+                changeset "*/*.html"
+  // scan all the folders and check if there is change in html file  
             }
             steps {
                  echo "executing Dev script"
