@@ -15,7 +15,7 @@ pipeline{
 	             script {
                        def pom = readMavenPom file: 'pom.xml'
                        env.version = pom.version
-                       echo "${env.version}"
+                       echo "main branch version is ${env.version}"
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline{
 	                      script {
                        def pom = readMavenPom file: 'pom.xml'
                        env.version = pom.version
-                       echo "${env.version}"
+                       echo "develop branch version is ${env.version}"
                 }
 
 		 }          
@@ -42,7 +42,7 @@ pipeline{
 	           script {
                        def pom = readMavenPom file: 'pom.xml'
                        env.version = pom.version
-                       echo "${env.version}"
+                       echo "Feature branch version is ${env.version}"
                  }
         }
     }
