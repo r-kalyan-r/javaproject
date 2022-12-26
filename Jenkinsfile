@@ -6,32 +6,45 @@ pipeline{
             checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/r-kalyan-r/javaproject.git',credentialsId: 'git-token']], branches: [[name: 'main']]], poll: false
           }
         }
-        stage("Main branch stage") {
+        stage("main branch script ") {
             when {
                 branch "main"
-		    //   Runs only if the branch is "main"
+		    // Build only when main branch  
             }
             steps {
-                echo "Run main branch stage"
+	             script {
+                       def pom = readMavenPom file: 'pom.xml'
+                       env.version = pom.version
+                       echo "main branch version is ${env.version}"
+                }
             }
         }
-        stage("Develop branch"){
+        stage("develop branch script"){
             when {
                 branch "develop"
-              // Runs only if the branch is "develop"       
+              // scan all the folders and check if there is change in python script       
             }
             steps {
-                 echo "Run develop branch script"
+	                      script {
+                       def pom = readMavenPom file: 'pom.xml'
+                       env.version = pom.version
+                       echo "develop branch version is ${env.version}"
+                }
+
 		 }          
         }
-	stage("Feature branch"){
+	stage("feature branch script"){
             when {
                 branch "feature-*"
-  // run this stage  if the branch name starts with feature-
+  // builds on when branch starts with feature-  
             }
             steps {
-                 echo "Run Feature branch script"
+	           script {
+                       def pom = readMavenPom file: 'pom.xml'
+                       env.version = pom.version
+                       echo "Feature branch version is ${env.version}"
                  }
         }
     }
+}
 }
