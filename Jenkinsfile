@@ -23,7 +23,7 @@ pipeline{
                  echo "executing Prod script"
 		 }          
         }
-	stage("Prod-Dev"){
+	stage("Dev-Stage"){
             when {
                 changelog "Dev/*.html"
 
