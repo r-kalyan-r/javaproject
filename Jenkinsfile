@@ -8,7 +8,7 @@ pipeline{
         }
         stage("QA-Stage") {
             when {
-                changelog ".*QA.*"
+                changeset "*QA/.html*"
             }
             steps {
                 echo "executing QA script"
@@ -16,7 +16,7 @@ pipeline{
         }
         stage("Prod-Stage"){
             when {
-                changelog ".*PROD.*"
+                changeset "*Prod/.html*"
                     
             }
             steps {
@@ -25,7 +25,7 @@ pipeline{
         }
 	stage("Prod-Dev"){
             when {
-                changelog ".*Dev.*"
+                changelog "*Dev/.html"
 
             }
             steps {
