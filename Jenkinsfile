@@ -24,7 +24,7 @@ pipeline{
                  echo "executing Prod script"
 		 }          
         }
-	stage("Dev-Stage"){
+	stage("html change"){
             when {
                 changeset "*/*.html"
   // scan all the folders and check if there is change in html file  
