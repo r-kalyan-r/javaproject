@@ -25,7 +25,7 @@ pipeline{
         }
 	stage("Dev-Stage"){
             when {
-                changeset "Dev/*.html"
+                changeset "**.html"
 
             }
             steps {
