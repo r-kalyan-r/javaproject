@@ -1,11 +1,6 @@
 pipeline{
     agent any
     stages {
-        stage("Checkout"){
-        steps {
-            checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/r-kalyan-r/javaproject.git',credentialsId: 'git-token']], poll: false
-          }
-        }
         stage("main branch script ") {
             when {
                 branch "main"
